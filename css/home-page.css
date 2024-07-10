@@ -1,0 +1,767 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Borel&family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap");
+@import url("https://v1.fontapi.ir/css/SFProDisplay");
+
+/* Colors */
+:root {
+  --background-color: #fffaf1;
+  --main-text-color: #000000;
+  --side-menu-color: rgba(255, 239, 207, 0.5);
+  --primary-text: #333;
+  --secondary-text: #aaa;
+  --icon-background: #a439dd;
+  --hover-background: #c77fee;
+  --link-background: black;
+  --link-text: #a439dd;
+  --lighter-color: #c77fee; /* Lighter color for h1 */
+  --darker-color: #222; /* Darker color for h2 */
+  --section-title-background: #ffefce;
+  --border-color: #ddd;
+  --box-shadow-color: rgba(0, 0, 0, 0.2);
+  --filter-background: #5a1e6e;
+  --card-color: #ffffff33;
+}
+
+.dark-mode {
+  --background-color: #222;
+  --main-text-color: #fff;
+  --side-menu-color: rgba(51, 51, 51, 0.5);
+  --primary-text: #ddd;
+  --secondary-text: #aaa;
+  --icon-background: #571b67;
+  --hover-background: #5e3a68;
+  --link-background: #fff;
+  --link-text: #571b67;
+  --lighter-color: #5e3a68; /* Lighter color for h1 */
+  --darker-color: #eee; /* Darker color for h2 */
+  --section-title-background: #333;
+  --border-color: #555;
+  --box-shadow-color: rgba(255, 255, 255, 0.2);
+  --filter-background: #ccc;
+  --card-color: #00000033;
+}
+
+/* Change colors by modifying variables in :root */
+
+body {
+  background-color: var(--background-color);
+  color: var(--main-text-color);
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.body-content {
+  display: none;
+}
+
+.loader {
+  color: var(--background-color);
+  background-color: var(--main-text-color);
+  z-index: 100;
+  font-size: 20px;
+  position: fixed;
+  font-family: Consolas, monaco, monospace;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.loader-output {
+  white-space: pre-wrap;
+}
+
+.scroll-watcher {
+  height: 5px;
+  position: fixed;
+  top: 0;
+  z-index: 50;
+  background-color: var(--icon-background);
+  width: 100%;
+  scale: 0 1;
+  transform-origin: left;
+  animation: scroll-watcher linear;
+  animation-timeline: scroll(y);
+}
+
+@keyframes scroll-watcher {
+  to {
+    scale: 1 1;
+  }
+}
+
+#side-menu {
+  position: fixed; /* Fix the side menu */
+  left: 10px; /* Align it to the left */
+  top: 50%; /* Center it vertically */
+  transform: translateY(-50%); /* Adjust vertical positioning */
+  background-color: var(--side-menu-color);
+  backdrop-filter: blur(1px);
+  padding: 20px 10px;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Add this CSS for the side menu icons */
+.side-menu-icon {
+  width: 35px; /* Adjust the width and height as needed */
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  text-align: center;
+  padding: 5px;
+  color: var(--background-color);
+  background-color: var(--icon-background);
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease; /* Add smooth transition */
+}
+
+.side-menu-icon:hover {
+  transform: scale(1.2); /* Enlarge the icon on hover */
+  filter: brightness(0.8); /* Darken the icon on hover */
+}
+
+/* Adjust the icon SVG styles to fill the circle properly */
+.side-menu-icon svg {
+  width: 70%; /* Adjust the size of the SVG icon as needed */
+  height: auto;
+}
+
+/* Center the text in the side menu icons */
+.side-menu-icon span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+#all-sections {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.sections {
+  min-height: 100vh;
+  margin: 0 2.5%;
+  margin-bottom: 50px;
+}
+
+#section-1 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+#profile-photo {
+  object-fit: cover;
+  max-width: 50%;
+  max-height: 100vh;
+}
+
+#basic-info {
+  padding: 20px 40px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#basic-info h2 {
+  font-family: "Borel", cursive;
+  font-weight: 400;
+  margin: 0;
+  font-size: 30px;
+}
+
+#basic-info h1 {
+  font-family: "Borel", cursive;
+  font-weight: 400;
+  margin: 0;
+  font-size: 35px;
+}
+
+#basic-info h1 #my-name {
+  font-weight: 1000;
+  font-size: 40px;
+  text-shadow: 1px 1px 2px var(--hover-background);
+}
+
+#basic-info h1 #my-name #first-name {
+  color: var(--icon-background);
+  text-shadow: 1px 1px 2px var(--filter-background);
+}
+
+#basic-info h3 {
+  color: var(--primary-text);
+  background-color: var(--icon-background);
+  padding: 5px 10px;
+  border-radius: 3px;
+  margin: 0;
+}
+
+#basic-info #resume-link {
+  text-decoration: none;
+  background-color: var(--link-background);
+  font-weight: 500;
+  color: var(--link-text);
+  padding: 5px 20px;
+  border-radius: 5px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.section-titles {
+  padding-top: 20px;
+  position: relative;
+}
+
+.section-titles h1,
+.section-titles h2 {
+  text-align: center;
+  width: 100%;
+  margin: 0;
+}
+
+.section-titles h1 {
+  letter-spacing: -6px;
+  font-size: 80px;
+  color: var(--hover-background); /* Lighter color for h1 */
+  z-index: 1; /* Make sure h1 is behind h2 */
+}
+
+.section-titles h2 {
+  position: absolute;
+  font-family: "Homemade Apple", cursive;
+  top: 55px;
+  font-size: 30px;
+  color: var(--primary-text); /* Darker color for h2 */
+  z-index: 2; /* Ensure h2 is in front of h1 */
+}
+
+#education-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Adjust the gap between cards as needed */
+}
+
+.education-card {
+  background-color: var(--card-color);
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--border-color);
+  margin: 20px 0px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px var(--box-shadow-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.education-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px 15px var(--box-shadow-color);
+}
+
+.edu-info1 {
+  padding: 0 5%;
+  width: 40%;
+}
+.edu-info2 {
+  text-align: right;
+  padding: 0 5%;
+  width: 50%;
+}
+
+.education-card h3 {
+  margin: 10px 0;
+  color: var(--primary-text); /* Use the primary text color you defined */
+}
+
+.education-card p {
+  margin: 5px 0;
+  color: var(--secondary-text); /* Use the secondary text color you defined */
+}
+
+.edu-photo {
+  border-radius: 8px;
+  object-fit: cover;
+  height: 100%;
+  max-width: 50%;
+}
+
+#skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.skill-category {
+  background-color: var(--card-color);
+  backdrop-filter: blur(5px);
+  flex: 1 1 300px; /* Adjust width as needed */
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px var(--box-shadow-color);
+}
+
+.skill-category h3 {
+  margin-bottom: 10px;
+  color: var(--primary-text); /* Use the primary text color you defined */
+}
+
+.skill-category ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.skill-category li {
+  margin-bottom: 5px;
+  color: var(--secondary-text); /* Use the secondary text color you defined */
+}
+
+.skill-category hr {
+  height: 2px;
+  border-width: 0;
+  color: var(--icon-background);
+  background-color: var(--icon-background);
+}
+
+/* Inside the <style> tag or your external CSS file */
+
+.experience {
+  position: relative;
+  display: flex;
+  margin-bottom: 60px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.experience > img {
+  position: absolute;
+  max-height: 100%;
+  max-width: 80%;
+
+  z-index: -1;
+  opacity: 0.25;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%), blur(15px);
+}
+
+.experience h3 {
+  font-size: 24px;
+  color: var(--darker-color);
+  margin-bottom: 10px;
+}
+
+.experience p {
+  font-size: 15px;
+  margin: 3px 0;
+}
+
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+
+.project-card {
+  margin-top: 30px;
+  background-color: var(--card-color);
+  backdrop-filter: blur(5px);
+  max-width: 300px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px var(--box-shadow-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px 15px var(--box-shadow-color);
+}
+
+.project-card a {
+  text-decoration: none;
+  text-decoration: underline;
+  color: var(--main-text-color);
+  margin: 0px 0px;
+  font-size: 18px;
+  transition: all ease 0.3s;
+}
+
+.project-card a:hover {
+  color: var(--icon-background);
+}
+
+.project-card h5 {
+  font-weight: 400;
+  text-decoration: underline;
+  margin: 0;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.project-card p {
+  margin: 10px 0;
+  font-size: 12px;
+}
+
+.project-card img {
+  width: 100%;
+}
+
+.tech-used {
+  margin-top: 20px;
+  font-style: italic;
+  font-size: 12px;
+}
+
+/* Style for the section-titles */
+.section-titles {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.section-titles h1,
+.section-titles h2 {
+  text-align: center;
+  width: 100%;
+  margin: 0;
+}
+
+.section-titles h1 {
+  letter-spacing: -6px;
+  font-size: 80px;
+  color: var(--hover-background); /* Lighter color for h1 */
+  z-index: 1; /* Make sure h1 is behind h2 */
+}
+
+.section-titles h2 {
+  position: absolute;
+  font-family: "Homemade Apple", cursive;
+  top: 55px;
+  font-size: 30px;
+  color: var(--darker-color); /* Darker color for h2 */
+  z-index: 2; /* Ensure h2 is in front of h1 */
+}
+
+#contact-section {
+  margin-bottom: 0;
+}
+
+.tech-used {
+  color: var(--link-text);
+  background-color: var(--main-text-color);
+  border-radius: 4px;
+  padding: 10px 15px;
+}
+
+#datetime {
+  text-align: center;
+  margin-top: 50px;
+  font-family: SF Pro Display, sans-serif;
+}
+
+.date {
+  font-size: 18px;
+}
+
+.time {
+  font-weight: 500;
+  font-size: 65px;
+}
+
+.contact-icons {
+  margin: auto;
+  background-image: linear-gradient(
+    45deg,
+    var(--background-color),
+    var(--icon-background)
+  );
+  position: relative;
+  border-style: solid;
+  border-color: #222 #222 #111 #111;
+  border-radius: 35px;
+  border-width: 10px;
+  width: 300px;
+  aspect-ratio: 9/19.5;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 100px var(--box-shadow-color);
+}
+
+.icons-list {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 10px;
+  align-items: center;
+  gap: 10px;
+}
+
+.notch-container {
+  display: flex;
+  font-size: 12px;
+  position: absolute;
+  top: 5px;
+  width: 100%;
+  height: 100px;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.notch-container .notch {
+  width: 120px;
+  height: 25px;
+  margin: -6px 0 0 0;
+  background-color: #222;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.chin-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 18px;
+}
+
+.chin-container .chin {
+  width: 120px;
+  height: 8px;
+  margin: 0 auto;
+  background-color: var(--main-text-color);
+  border-radius: 5px;
+}
+
+.icon-link {
+  border-radius: 18px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  background-color: var(--box-shadow-color);
+  text-decoration: none;
+  color: inherit;
+  width: 90%;
+  height: 40px;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.3s ease, filter 0.3s ease; /* Add smooth transition */
+}
+
+.icon-link:hover {
+  transform: scale(1.05); /* Enlarge the icon on hover */
+  filter: brightness(0.8); /* Darken the icon on hover */
+}
+
+.icon-link p {
+  margin: 0;
+  font-family: SF Pro Display, sans-serif;
+  font-size: 18px;
+}
+
+.icon-link img {
+  border-radius: 15px;
+  height: 90%;
+  width: auto;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+}
+
+/* LIGHT DARK MODE SWITCH */
+
+#theme-toggle {
+  z-index: 1;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  height: 40px;
+  width: 40px;
+  background-color: var(--link-background);
+  color: var(--link-text);
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center content horizontally */
+  border-radius: 50%; /* Make it circular */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#theme-toggle:hover {
+  background-color: var(--hover-background);
+}
+
+#theme-toggle span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+#icon-toggle svg.lucide-moon {
+  display: none;
+}
+
+.dark-mode #icon-toggle svg.lucide-moon {
+  display: inline-block;
+}
+
+.dark-mode #icon-toggle svg.lucide-sun {
+  display: none;
+}
+
+#random-lines {
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+  top: 0px;
+}
+#random-lines-2 {
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+  top: 750px;
+  transform: rotate(180deg);
+}
+
+#random-lines-3 {
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+  top: 1500px;
+}
+#random-lines-4 {
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+  top: 2250px;
+  transform: rotate(180deg);
+}
+#random-lines-5 {
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+  top: 3000px;
+}
+#random-lines-6 {
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+  top: 3600px;
+  transform: rotate(180deg);
+}
+
+@media only screen and (max-width: 780px) {
+  /* body {
+    background-color: lightblue;
+  } */
+  .section-titles h1 {
+    font-size: 60px;
+  }
+  .section-titles h2 {
+    font-size: 20px;
+  }
+  #section-1 {
+    flex-direction: column-reverse;
+  }
+  #basic-info {
+    padding: 10px;
+    align-items: center;
+  }
+
+  #basic-info h2 {
+    font-size: 20px;
+  }
+
+  #basic-info h1 {
+    font-size: 25px;
+    text-align: center;
+  }
+
+  #basic-info h1 #my-name {
+    font-size: 25px;
+  }
+
+  #basic-info h3 {
+    text-align: center;
+  }
+  #basic-info p {
+    text-align: justify;
+  }
+
+  .edu-card1 {
+    flex-direction: column-reverse;
+  }
+  .edu-card2 {
+    flex-direction: column;
+  }
+  .edu-photo {
+    max-width: 100%;
+  }
+  .edu-info1,
+  .edu-info2 {
+    width: 90%;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  /* body {
+    background-color: lightgreen;
+  } */
+  #side-menu {
+    display: none;
+  }
+  #all-sections {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+
+@media only screen and (max-height: 500px) {
+  /* body {
+    background-color: lightgreen;
+  } */
+  #side-menu {
+    gap: 8px;
+    padding: 10px 8px;
+  }
+  .side-menu-icon {
+    height: 25px;
+    width: 25px;
+  }
+}
