@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khwaish Agarwal - Portfolio</title>
+    <link rel="stylesheet" href="./css/home-page.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <script src="./script/home-page.js" defer></script>
+
+    <!-- Favicons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./media/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./media/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./media/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./media/favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="./media/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#2b5797" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
+  <body>
+    <div class="loader">
+      <div class="loader-output"></div>
+    </div>
+
+    <div class="body-content">
+      <div class="scroll-watcher"></div>
+      <button id="theme-toggle" onclick="toggleTheme()">
+        <span id="icon-toggle" class="lucide lucide-sun">
+          <!-- Light mode SVG icon -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-sun"
+          >
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2" />
+            <path d="M12 20v2" />
+            <path d="m4.93 4.93 1.41 1.41" />
+            <path d="m17.66 17.66 1.41 1.41" />
+            <path d="M2 12h2" />
+            <path d="M20 12h2" />
+            <path d="m6.34 17.66-1.41 1.41" />
+            <path d="m19.07 4.93-1.41 1.41" />
+          </svg>
+
+          <!-- Dark mode SVG icon (hidden by default) -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-moon"
+            style="display: none"
+          >
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+          </svg>
+        </span>
+      </button>
+
+      <!-- <button id="theme-toggle" onclick="toggleTheme()">
+      Toggle Dark/Light Mode
+    </button> -->
+
+      <ul id="side-menu">
+        <span
+          class="side-menu-icon"
+          id="home-icon"
+          onclick="scrollToSection('section-1')"
+          title="Home"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-home"
+          >
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+        </span>
+        <span
+          class="side-menu-icon"
+          id="education-icon"
+          onclick="scrollToSection('education-section')"
+          title="Education"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-graduation-cap"
+          >
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+            <path d="M6 12v5c3 3 9 3 12 0v-5" />
+          </svg>
+        </span>
+        <span
+          class="side-menu-icon"
+          id="skills-icon"
+          onclick="scrollToSection('skills-section')"
+          title="Skills"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-layers-3"
+          >
+            <path
+              d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"
+            />
+            <path
+              d="m6.08 9.5-3.5 1.6a1 1 0 0 0 0 1.81l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9a1 1 0 0 0 0-1.83l-3.5-1.59"
+            />
+            <path
+              d="m6.08 14.5-3.5 1.6a1 1 0 0 0 0 1.81l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9a1 1 0 0 0 0-1.83l-3.5-1.59"
+            />
+          </svg>
+        </span>
+        <span
+          class="side-menu-icon"
+          id="projects-icon"
+          onclick="scrollToSection('project-section')"
+          title="Projects"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-panels-top-left"
+          >
+            <rect width="18" height="18" x="3" y="3" rx="2" />
+            <path d="M3 9h18" />
+            <path d="M9 21V9" />
+          </svg>
+        </span>
+        <span
+          class="side-menu-icon"
+          id="work-experience-icon"
+          onclick="scrollToSection('experience-section')"
+          title="Experience"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-briefcase"
+          >
+            <rect width="20" height="14" x="2" y="7" rx="2" ry="2" />
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+          </svg>
+        </span>
+
+        <span
+  class="side-menu-icon"
+  id="awards-achievements-icon"
+  onclick="scrollToSection('awards-achievements-section')"
+  title="Awards and Achievements"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="lucide lucide-award"
+  >
+    <!-- SVG content for an award icon goes here -->
+    <circle cx="12" cy="8" r="7"/>
+    <polyline points="8 14 12 20 16 14"/>
+    <line x1="12" y1="20" x2="12" y2="22"/>
+  </svg>
+</span>
+
+        <span
+          class="side-menu-icon"
+          id="contact-icon"
+          onclick="scrollToSection('contact-section')"
+          title="Contact"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-phone"
+          >
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+            />
+          </svg>
+        </span>
+      </ul>
+
+      <div id="all-sections">
+        <section class="sections" id="section-1">
+          <div id="basic-info">
+            <h2>Greetings!</h2>
+            <h1>
+              I am <i id="my-name"><i id="first-name">Khwaish</i> Agarwal</i>
+            </h1>
+            <h3>Computer Science Undergrad</h3>
+            <p>
+              I'm a third-year Computer Science undergraduate with 
+              a keen interest in Data Structures, Algorithms, and Python. 
+              Passionate about AI, ML, and Data Science, 
+              I'm always eager to learn and explore new frontiers in technology.
+              If you have exciting projects or roles that align with my interests, 
+              let's connect and explore potential collaborations. 
+              Together, we can make a difference!
+            </p>
+            <!-- <a
+              id="resume-link"
+              href="https://drive.google.com/file/d/1vnHBlxRNC1tU9rkepYnhtu-fZgpBwpZr/view?usp=sharing"
+              target="_blank"
+              >Résumé</a
+            > -->
+
+            <!-- <ul id="socials">
+              <span class="social-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-github"
+                >
+                  <path
+                    d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+                  />
+                  <path d="M9 18c-4.51 2-5-2-7-2" />
+                </svg>
+              </span>
+              <span class="social-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-linkedin"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  />
+                  <rect width="4" height="12" x="2" y="9" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </span>
+              <span class="social-icon"></span>
+            </ul> -->
+          </div>
+          <img id="profile-photo" src="./media/KApic.JPG" />
+        </section>
+
+        <section class="sections below-section" id="education-section">
+          <div class="section-titles">
+            <h1 class="main-title">EDUCATION</h1>
+            <h2 class="secondary-title">Academic Journey</h2>
+          </div>
+          <div id="education-cards-list">
+            <div class="education-card edu-card1">
+              <div class="edu-info1">
+                <h3>Thapar Institute of Engineering and Technology</h3>
+                <p>Patiala, India</p>
+                <p>B.E. in Computer Science with current CGPA of <b>9.93/10.0</b></p>
+                <p>September 2022 - June 2026</p>
+              </div>
+              <img class="edu-photo" src="./media/tiet.jpg" />
+            </div>
+
+            <div class="education-card edu-card2">
+              <img class="edu-photo" src="./media/DPSRKP.png" />
+              <div class="edu-info2">
+                <h3>Delhi Public School, R.K. Puram</h3>
+                <p>New Delhi, India</p>
+                <p>
+                  Passed 12th standard CBSE (Science) with <b>98.8 percent</b>
+                </p>
+                <p>July 2020 - May 2022</p>
+              </div>
+            </div>
+
+            <div class="education-card edu-card1">
+              <div class="edu-info1">
+                <h3>St. Joseph's Convent</h3>
+                <p>Kalimpong, India</p>
+                <p>Passed 10th standard ICSE with <b>98.4 percent</b></p>
+                <p>February 2009 - May 2020</p>
+              </div>
+              <img class="edu-photo" src="./media/sjc.webp" />
+            </div>
+          </div>
+        </section>
+
+        <!-- Inside the section with id="skills-section" -->
+        <section class="sections below-section" id="skills-section">
+          <div class="section-titles">
+            <h1 class="main-title">Skills</h1>
+            <h2 class="secondary-title">Technologies and Abilities</h2>
+          </div>
+
+          <div id="skills-list">
+            <div class="skill-category">
+              <h3>Languages</h3>
+              <hr />
+              <ul>
+                <li>C/C++</li>
+                <li>Python</li>
+                <li>SQL</li>
+                <li>PL/SQL</li>
+                <li>MySQL</li>
+                <li>HTML</li>
+                <li>Cascading Style Sheets</li>
+                <li>JavaScript</li>
+              </ul>
+            </div>
+
+            <div class="skill-category">
+              <h3>Libraries / Frameworks / Environment</h3>
+              <hr />
+              <ul>
+                <li>Pandas</li>
+                <li>NumPy</li>
+                <li>Scikit Learn</li>
+                <li>Matplotlib</li>
+                <li>Tensorflow</li>
+                <li>Bootstrap</li>
+                <li>Streamlit</li>
+                <li>Linux/Unix</li>
+              </ul>
+            </div>
+
+            <div class="skill-category">
+              <h3>Computer Proficiency</h3>
+              <hr />
+              <ul>
+                <li>Data Structures</li>
+                <li>Algorithms</li>
+                <li>Operating Systems</li>
+                <li>Object Oriented Programming</li>
+                <li>Artificial Intelligence</li>
+                <li>Machine Learning</li>
+                <li>Data Science</li>
+                <li>Database Management System</li>
+                <li>Computer Networks</li>
+                <li>Software Engineering</li>
+              </ul>
+            </div>
+
+            <div class="skill-category">
+              <h3>Developer Tools</h3>
+              <hr />
+              <ul>
+                <li>VS Code</li>
+                <li>Git/GitHub</li>
+                <li>MATLAB</li>
+                <li>GNS3</li>
+                <li>Canva</li>
+                <li>Jupyter</li>
+                <li>Google Colab</li>
+                <li>Oracle Live SQL</li>
+                <li>AutoCAD</li>
+              </ul>
+            </div>
+
+            <div class="skill-category">
+              <h3>Soft Skills</h3>
+              <hr />
+              <ul>
+                <li>Marketing</li>
+                <li>Problem Solving</li>
+                <li>Time Management</li>
+                <li>Communication</li>
+                <li>Team Work</li>
+                <li>Interpersonal Skills</li>
+                <li>Analytical Skills</li>
+                <li>Collaboration</li>
+                <li>Knowledge Aquisition</li>
+                <li>Leadership</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Inside the section with id="project-section" -->
+        <section class="sections below-section" id="project-section">
+          <div class="section-titles">
+            <h1 class="main-title">Projects</h1>
+            <h2 class="secondary-title">Explore My Work</h2>
+          </div>
+          <div class="projects-container">
+            <div class="project-card">
+              <img src="./media/jarvis.jpeg" alt="" />
+              <h3>Voice Activated Virtual Assistant (Jarvis)</h3>
+              <a
+                href="https://github.com/khwaishagarwal/Jarvis-AI-assistant"
+                target="_blank"
+              >
+                Code
+              </a>
+              <!-- <p>
+              Developed a year-long Recruitment Portal for continuous student
+              applications and society recruitments.
+            </p>
+            <p>
+              Designed user and admin front-end interfaces for seamless
+              navigation and usability.
+            </p>
+            <p>Currently in the testing phase, poised for deployment.</p> -->
+              <p class="tech-used">
+                Technologies: Python
+              </p>
+            </div>
+
+            <div class="project-card">
+              <img src="./media/carparts.png" alt="" />
+              <h3>Car Parts Classifier</h3>
+              <a
+                href="https://github.com/khwaishagarwal/Carparts_Classifier"
+                target="_blank"
+              >
+                Code
+              </a>
+              <!-- <p>
+              Developed a year-long Recruitment Portal for continuous student
+              applications and society recruitments.
+            </p>
+            <p>
+              Designed user and admin front-end interfaces for seamless
+              navigation and usability.
+            </p>
+            <p>Currently in the testing phase, poised for deployment.</p> -->
+              <p class="tech-used">
+                Technologies: Python, Google Colab
+              </p>
+            </div>
+
+            <div class="project-card">
+              <img src="./media/straysafe.jpg" alt="" />
+              <h3>StraySafe</h3>
+              <a
+                href="https://github.com/khwaishagarwal/StraySafe"
+                target="_blank"
+                >Code</a
+              >
+              <!-- <p>
+              Led development team, creating a collaborative project management
+              platform, during Intra-Hackathon.
+            </p>
+            <p>
+              Designed an aesthetically pleasing and user-friendly front-end
+              design.
+            </p>
+            <p>
+              Integrated GitHub APIs for seamless collaboration and project
+              management.
+            </p>
+            <p>
+              Implemented live chatting feature using Websockets for real-time
+              communication.
+            </p> -->
+              <p class="tech-used">
+                Technologies: HTML, CSS, JavaScript, BootStrap, Go, SQL
+              </p>
+            </div>
+
+            <div class="project-card">
+              <img src="./media/CodingSisters.jpeg" alt="" />
+              <h3>Coding Sisters</h3>
+              <a
+                href="https://github.com/khwaishagarwal/CodingSisters"
+                target="_blank"
+                >Code</a
+              >
+              <!-- <p>
+              Led development team, creating a collaborative project management
+              platform, during Intra-Hackathon.
+            </p>
+            <p>
+              Designed an aesthetically pleasing and user-friendly front-end
+              design.
+            </p>
+            <p>
+              Integrated GitHub APIs for seamless collaboration and project
+              management.
+            </p>
+            <p>
+              Implemented live chatting feature using Websockets for real-time
+              communication.
+            </p> -->
+              <p class="tech-used">
+                Technologies: HTML, CSS
+              </p>
+            </div>
+
+            <div class="project-card">
+              <img src="./media/DogBreed.webp" alt="" />
+              <h3>Dog Breed Classifier</h3>
+              <a
+                href="https://github.com/khwaishagarwal/DogBreedClassifier"
+                target="_blank"
+                >Code</a
+              >
+              <!-- <p>
+              Led development team, creating a collaborative project management
+              platform, during Intra-Hackathon.
+            </p>
+            <p>
+              Designed an aesthetically pleasing and user-friendly front-end
+              design.
+            </p>
+            <p>
+              Integrated GitHub APIs for seamless collaboration and project
+              management.
+            </p>
+            <p>
+              Implemented live chatting feature using Websockets for real-time
+              communication.
+            </p> -->
+              <p class="tech-used">
+                Technologies: Python, Jypyter
+              </p>
+            </div>
+
+            <div class="project-card">
+              <img src="./media/libmanagement.avif" alt="" />
+              <h3>Library Management System</h3>
+              <a
+                href="https://github.com/khwaishagarwal/lib_managament"
+                target="_blank"
+              >
+                Code
+              </a>
+              <!-- <p>
+              Developed a year-long Recruitment Portal for continuous student
+              applications and society recruitments.
+            </p>
+            <p>
+              Designed user and admin front-end interfaces for seamless
+              navigation and usability.
+            </p>
+            <p>Currently in the testing phase, poised for deployment.</p> -->
+              <p class="tech-used">
+                Technologies: Python, SQL
+              </p>
+            </div>
+
+            <div class="project-card">
+              <img src="./media/netflix.jpeg" alt="" />
+              <h3>Netflix Clone</h3>
+              <a
+                href="https://github.com/khwaishagarwal/BharatInternNetflix"
+                target="_blank"
+                >Code</a
+              >
+              <!-- <p>
+              Developed Flask-based web app enabling instant image
+              cartoonification with adjustable effects, as part of the
+              Experiential Learning Centre Activity.
+            </p>
+            <p>
+              Leveraged essential libraries, like NumPy and OpenCV, to enhance
+              functionality and processing capabilities.
+            </p> -->
+              <p class="tech-used">
+                Technologies: HTML, CSS
+              </p>
+            </div>
+
+
+            <div class="project-card">
+              <img src="./media/road-repair.png" alt="" />
+              <h3>Road Reapir Cost Estimator</h3>
+              <a
+                href="https://github.com/JAK0707/Road-Damage-Detection"
+                target="_blank"
+                >Code</a
+              >
+              <!-- <p>
+              Developed Flask-based web app enabling instant image
+              cartoonification with adjustable effects, as part of the
+              Experiential Learning Centre Activity.
+            </p>
+            <p>
+              Leveraged essential libraries, like NumPy and OpenCV, to enhance
+              functionality and processing capabilities.
+            </p> -->
+              <p class="tech-used">
+                Technologies: Python, Ultralytics YOLOv8, Streamlit
+              </p>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Inside the section with id="experience-section" -->
+        <section class="sections below-section" id="experience-section">
+          <div class="section-titles">
+            <h1 class="main-title">Experience</h1>
+            <h2 class="secondary-title">Work Experience / Positions of Responsibility</h2>
+          </div>
+
+          <div class="experience">
+            <img src="./media/ebixcash.jpeg" />
+            <h3>EbixCash Financial Technologies, India | Data Science Intern</h3>
+            <p>Jun. 2024 – Aug. 2024</p>
+            <p>
+              Collaborated with a team of 50+ members on the development of a robo advisor, leveraging continuous learning and mentorship to enhance data-driven financial solutions.
+            </p>
+          </div>
+
+          <div class="experience">
+            <img src="./media/bharat.png" />
+            <h3>Bharat Intern, India | Web Developer Intern</h3>
+            <p>Sep. 2023 – Oct. 2023</p>
+            <p>
+              Collaborated with over 25 other developers to enhance the user experience of websites.
+            </p>
+            <p>
+              Tested and debugged code for compatibility across multiple browsers getting an overall accuracy of over 85%.
+            </p>
+          </div>
+
+          <div class="experience">
+            <img src="./media/owasp.jpeg" />
+            <h3>
+              Owasp Student Chapter - Technical Society at Thapar | Executive Member, Event Head - CTF
+            </h3>
+            <p>Nov. 2022 – Present</p>
+            <p>
+              Organized hackathons and CTF events drawing 1500+ participants and 1000+ attendees.
+            </p>
+            <p>
+              Designed and managed technical infrastructure for CTF competitions, overseeing servers, networking, and cybersecurity measures.
+            </p>
+          </div>
+
+          <div class="experience">
+            <img src="./media/tff.jpeg" />
+            <h3>Thapar Food Festival | Core Member</h3>
+            <p>Aug. 2023 – Nov. 2023</p>
+            <p>
+              Developed and managed event websites, driving 450+ unique visitors and a 20% increase in registrations. Also, collaborated with peers to achieve 10% productivity and profitability gains.
+            </p>
+          </div>
+
+          <div class="experience">
+            <img src="./media/astronomy.jpeg" />
+            <h3>Astronomy Club | President</h3>
+            <p>
+              Jul. 2021 – May. 2022</p>
+            <p>
+              Organised 5+ workshops and led a team of 150+ students in a leadership role, fostering collaboration and empowerment within the club.
+            </p>
+          </div>
+        </section>
+
+        <!-- Inside the section with id="awards-achievements-section" -->
+        <section class="sections below-section" id="awards-achievements-section">
+          <div class="section-titles">
+            <h1 class="main-title">Achievements</h1>
+            <h2 class="secondary-title">Awards and Accomplishments</h2>
+          </div>
+
+          <div class="experience">
+            <p>
+              <b>2nd Runners Up in </b> nationwide hackathon - HackTech 2025.
+            </p>
+          </div>
+
+          <div class="experience">
+            <p>
+              <b>Among top 20 finalists </b> in nationwide Hackathon - Hackowasp 5.0 .
+            </p>
+          </div>
+
+          <div class="experience">
+            <p>
+              Recieved <b>Merit 1 Scholarship </b> from Thapar Institute of Engineering and Technology for excellence in academics. 
+            </p>
+          </div>
+
+          <div class="experience">
+            <p>
+              Awarded <b>Silver Batch </b> from Delhi Public School, R.K. Puram for excellence in academics. 
+            </p>
+          </div>
+
+          <div class="experience">
+            <p>
+              <b>District Topper </b> in ICSE Board Examination.
+            </p>
+          </div>
+        </section>
+
+        <section class="sections below-section" id="contact-section">
+          <div class="section-titles">
+            <h1 class="main-title">CONTACT</h1>
+            <h2 class="secondary-title">Get in Touch</h2>
+          </div>
+
+          <div class="contact-icons">
+            <div class="notch-container">
+              Jio True5G
+              <div class="notch"></div>
+              <div>
+                <i class="fa fa-signal" aria-hidden="true"></i> 5G
+                <i class="fa fa-battery-three-quarters" aria-hidden="true"></i>
+              </div>
+            </div>
+
+            <div id="datetime"></div>
+            <div class="icons-list">
+              <a
+                href="https://www.linkedin.com/in/khwaish-agarwal-371726232/"
+                target="_blank"
+                class="icon-link"
+              >
+                <img src="./media/linkedin-icon.png" alt="LinkedIn" />
+                <p>My LinkedIn</p>
+              </a>
+
+              <a
+                href="https://github.com/khwaishagarwal"
+                target="_blank"
+                class="icon-link"
+              >
+                <img src="./media/github-icon.png" alt="GitHub" />
+                <p>My GitHub</p>
+              </a>
+
+              <a href="mailto:khwaishagarwal22@gmail.com" class="icon-link">
+                <img src="./media/mail-icon.png" alt="Email" />
+                <p>My Email</p>
+              </a>
+
+              <a href="tel:+919933307105" class="icon-link">
+                <img src="./media/phone-icon.png" alt="Phone" />
+                <p>My Phone Number</p>
+              </a>
+
+              <a
+                href="https://www.instagram.com/khwaishagarwal"
+                target="_blank"
+                class="icon-link"
+              >
+                <img src="./media/instagram-icon.png" alt="Instagram" />
+                <p>My Instagram</p>
+              </a>
+            </div>
+
+            <div class="chin-container">
+              <div class="chin"></div>
+            </div>
+          </div>
+        </section>
+
+        <footer>
+          ~ Khwaish Agarwal <br />
+          © Copyright 2024. All Rights are Reserved.
+        </footer>
+      </div>
+
+      <span id="random-lines">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svgjs="http://svgjs.dev/svgjs"
+          width="2560"
+          height="1000"
+          preserveAspectRatio="none"
+          viewBox="0 0 2560 1000"
+        >
+          <g mask='url("#SvgjsMask1100")' fill="none">
+            <path
+              d="M -474.45476859170884,188 C -303.65,266.8 37.95,536 379.54523140829116,582 C 721.15,628 891.95,410.8 1233.545231408291,418 C 1575.15,425.2 1745.95,606.8 2087.5452314082913,618 C 2429.15,629.2 2847.05,488.2 2941.5452314082913,474 C 3036.04,459.8 2636.31,532.4 2560,547"
+              stroke="rgba(212, 155, 42, 0.2)"
+              stroke-width="2"
+            ></path>
+            <path
+              d="M -1361.0257442456343,293 C -1190.23,395.6 -848.63,822.8 -507.0257442456343,806 C -165.43,789.2 5.37,263.6 346.9742557543657,209 C 688.57,154.4 859.37,522.6 1200.9742557543657,533 C 1542.57,543.4 1783.17,267 2054.974255754366,261 C 2326.78,255 2458.99,454.6 2560,503"
+              stroke="rgba(212, 155, 42, 0.2)"
+              stroke-width="2"
+            ></path>
+            <path
+              d="M -1472.2534729041715,529 C -1301.45,478.2 -959.85,236.6 -618.2534729041715,275 C -276.65,313.4 -105.85,727.8 235.74652709582847,721 C 577.35,714.2 748.15,240.6 1089.7465270958285,241 C 1431.35,241.4 1649.7,743.6 1943.7465270958285,723 C 2237.8,702.4 2436.75,255 2560,138"
+              stroke="rgba(255, 225, 164, 0.2)"
+              stroke-width="2"
+            ></path>
+            <path
+              d="M -1116.9889442965846,449 C -946.19,538.4 -604.59,900.2 -262.9889442965845,896 C 78.61,891.8 249.41,499.4 591.0110557034154,428 C 932.61,356.6 1103.41,582 1445.0110557034154,539 C 1786.61,496 2076.01,173.4 2299.0110557034154,213 C 2522.01,252.6 2507.8,632.2 2560,737"
+              stroke="rgba(125, 83, 0, 0.2)"
+              stroke-width="2"
+            ></path>
+            <path
+              d="M -441.4482946327523,729 C -270.65,634.2 70.95,247.6 412.5517053672477,255 C 754.15,262.4 924.95,790 1266.5517053672477,766 C 1608.15,742 1778.95,151.8 2120.5517053672475,135 C 2462.15,118.2 2886.66,648.8 2974.5517053672475,682 C 3062.44,715.2 2642.91,377.2 2560,301"
+              stroke="rgba(212, 155, 42, 0.2)"
+              stroke-width="2"
+            ></path>
+          </g>
+          <defs>
+            <mask id="SvgjsMask1100">
+              <rect width="2560" height="1000" fill="#ffffff"></rect>
+            </mask>
+          </defs>
+        </svg>
+      </span>
+      <span id="random-lines-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svgjs="http://svgjs.dev/svgjs"
+          width="2560"
+          height="1000"
+          preserveAspectRatio="none"
+          viewBox="0 0 2560 1000"
+        >
+          <g mask='url("#SvgjsMask1100")' fill="none">
+            <path
+              d="M -474.45476859170884,188 C -303.65,266.8 37.95,536 379.54523140829116,582 C 721.15,628 891.95,410.8 1233.545231408291,418 C 1575.15,425.2 1745.95,606.8 2087.5452314082913,618 C 2429.15,629.2 2847.05,488.2 2941.5452314082913,474 C 3036.04,459.8 2636.31,532.4 2560,547"
+              stroke="rgba(212, 155, 42, 0.2)"
+              stroke-width="2"
+            ></path>
+            <path
+              d="M -1361.0257442456343,293 C -1190.23,395.6 -848.63,822.8 -507.0257442456343,806 C -165.43,789.2 5.37,263.6 346.9742557543657,209 C 688.57,154.4 859.37,522.6 1200.9742557543657,533 C 1542.57,543.4 1783.17,267 2054.974255754366,261 C 2326.78,255 2458.99,454.6 2560,503"
+              stroke="rgba(212, 155, 42, 0.2)"
+              stroke-width="2"
+            ></path>
+            <path
+              d="M -1472.2534729041715,529 C -1301.45,478.2 -959.85,236.6 -618.2534729041715,275 C -276.65,313.4 -105.85,727.8 235.74652709582847,721 C 577.35,714.2 748.15,240.6 1089.7465270958285,241 C 1431.35,241.4 1649.7,743.6 1943.7465270958285,723 C 2237.8,702.4 2436.75,255 2560,138"
+              stroke="rgba(255, 225, 164, 0.2)"
+              stroke-width="2"
+            ></path>
+            <path
+              d="M -1116.9889442965846,449 C -946.19,538.4 -604.59,900.2 -262.9889442965845,896 C 78.61,891.8 249.41,499.4 591.0110557034154,428 C 932.61,356.6 1103.41,582 1445.0110557034154,539 C 1786.61,496 2076.01,173.4 2299.0110557034154,213 C 2522.01,252.6 2507.8,632.2 2560,737"
+              stroke="rgba(125, 83, 0, 0.2)"
+              stroke-width="2"
+            ></path>
+            <path
+              d="M -441.4482946327523,729 C -270.65,634.2 70.95,247.6 412.5517053672477,255 C 754.15,262.4 924.95,790 1266.5517053672477,766 C 1608.15,742 1778.95,151.8 2120.5517053672475,135 C 2462.15,118.2 2886.66,648.8 2974.5517053672475,682 C 3062.44,715.2 2642.91,377.2 2560,301"
+              stroke="rgba(212, 155, 42, 0.2)"
+              stroke-width="2"
+            ></path>
+          </g>
+          <defs>
+            <mask id="SvgjsMask1100">
+              <rect width="2560" height="1000" fill="#ffffff"></rect>
+            </mask>
+          </defs>
+        </svg>
+      </span>
+
+      <span id="random-lines-3">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svgjs="http://svgjs.dev/svgjs"
+          width="2560"
+          height="1000"
+          preserveAspectRatio="none"
+          viewBox="0 0 2560 1000"
+        >
+          <g mask='url("#SvgjsMask1100")' fill="none">
+            <path
+              d="M -474.45476859170884,188 C -303.65,266.8 37.95,536 379.54523140829116,582 C 721.15,628 891.95,410.8 1233.545231408291,418 C 1575.15,425.2 1745.95,606.8 2087.5452314082913,618 C 2429.15,629.2 2847.05,488.2 2941.5452314082913,474 C 3036.04,459.8 2636.31,532.4 2560,547"
+              stroke="rgba(212, 155, 42, 0.2)"
+              stroke-width="2"
+            ></path>
+            <path
+              d="M -1361.0257442456343,293 C -1190.23,395.6 -848.63,822.8 -507.0257442456343,806 C -165.43,789.2 5.37,263.6 346.9742557543657,209 C 688.57,154.4 859.37,522.6 1200.9742557543657,533 C 1542.57,543.4 1783.17,267 2054.974255754366,261 C 2326.78,255 2458.99,454.6 2560,503"
+              stroke="rgba(212, 155, 42, 0.2)"
+              stroke-width="2"
+            ></path>
+            <path
+              d="M -1472.2534729041715,529 C -1301.45,478.2 -959.85,236.6 -618.2534729041715,275 C -276.65,313.4 -105.85,727.8 235.74652709582847,721 C 577.35,714.2 748.15,240.6 1089.7465270958285,241 C 1431.35,241.4 1649.7,743.6 1943.7465270958285,723 C 2237.8,702.4 2436.75,255 2560,138"
+              stroke="rgba(255, 225, 164, 0.2)"
+              stroke-width="2"
+            ></path>
+            <path
+              d="M -1116.9889442965846,449 C -946.19,538.4 -604.59,900.2 -262.9889442965845,896 C 78.61,891.8 249.41,499.4 591.0110557034154,428 C 932.61,356.6 1103.41,582 1445.0110557034154,539 C 1786.61,496 2076.01,173.4 2299.0110557034154,213 C 2522.01,252.6 2507.8,632.2 2560,737"
+              stroke="rgba(125, 83, 0, 0.2)"
+              stroke-width="2"
+            ></path>
+            <path
+              d="M -441.4482946327523,729 C -270.65,634.2 70.95,247.6 412.5517053672477,255 C 754.15,262.4 924.95,790 1266.5517053672477,766 C 1608.15,742 1778.95,151.8 2120.5517053672475,135 C 2462.15,118.2 2886.66,648.8 2974.5517053672475,682 C 3062.44,715.2 2642.91,377.2 2560,301"
+              stroke="rgba(212, 155, 42, 0.2)"
+              stroke-width="2"
+            ></path>
+          </g>
+          <defs>
+            <mask id="SvgjsMask1100">
+              <rect width="2560" height="1000" fill="#ffffff"></rect>
+            </mask>
+          </defs>
+        </svg>
+      </span>
+      <span id="random-lines-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svgjs="http://svgjs.dev/svgjs"
+          width="2560"
+          height="1000"
+          preserveAspectRatio="none"
+          viewBox="0 0 2560 1000"
+        >
+          <g mask='url("#SvgjsMask1100")' fill="none">
+            <path
+              d="M -474.45476859170884,188 C -303.65,266.8 37.95,536 379.54523140829116,582 C 721.15,628 891.95,410.8 1233.545231408291,418 C 1575.15,425.2 1745.95,606.8 2087.5452314082913,618 C 2429.15,629.2 2847.05,488.2 2941.5452314082913,474 C 3036.04,459.8 2636.31,532.4 2560,547"
+              stroke="rgba(212, 155, 42, 0.2)"
+              stroke-width="2"
+            ></path>
+            <path
+              d="M -1361.0257442456343,293 C -1190.23,395.6 -848.63,822.8 -507.0257442456343,806 C -165.43,789.2 5.37,263.6 346.9742557543657,209 C 688.57,154.4 859.37,522.6 1200.9742557543657,533 C 1542.57,543.4 1783.17,267 2054.974255754366,261 C 2326.78,255 2458.99,454.6 2560,503"
+              stroke="rgba(212, 155, 42, 0.2)"
+              stroke-width="2"
+            ></path>
+            <path
+              d="M -1472.2534729041715,529 C -1301.45,478.2 -959.85,236.6 -618.2534729041715,275 C -276.65,313.4 -105.85,727.8 235.74652709582847,721 C 577.35,714.2 748.15,240.6 1089.7465270958285,241 C 1431.35,241.4 1649.7,743.6 1943.7465270958285,723 C 2237.8,702.4 2436.75,255 2560,138"
+              stroke="rgba(255, 225, 164, 0.2)"
+              stroke-width="2"
+            ></path>
+            <path
+              d="M -1116.9889442965846,449 C -946.19,538.4 -604.59,900.2 -262.9889442965845,896 C 78.61,891.8 249.41,499.4 591.0110557034154,428 C 932.61,356.6 1103.41,582 1445.0110557034154,539 C 1786.61,496 2076.01,173.4 2299.0110557034154,213 C 2522.01,252.6 2507.8,632.2 2560,737"
+              stroke="rgba(125, 83, 0, 0.2)"
+              stroke-width="2"
+            ></path>
+            <path
+              d="M -441.4482946327523,729 C -270.65,634.2 70.95,247.6 412.5517053672477,255 C 754.15,262.4 924.95,790 1266.5517053672477,766 C 1608.15,742 1778.95,151.8 2120.5517053672475,135 C 2462.15,118.2 2886.66,648.8 2974.5517053672475,682 C 3062.44,715.2 2642.91,377.2 2560,301"
+              stroke="rgba(212, 155, 42, 0.2)"
+              stroke-width="2"
+            ></path>
+          </g>
+          <defs>
+            <mask id="SvgjsMask1100">
+              <rect width="2560" height="1000" fill="#ffffff"></rect>
+            </mask>
+          </defs>
+        </svg>
+      </span>
+
+      <span id="random-lines-5">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svgjs="http://svgjs.dev/svgjs"
+          width="2560"
+          height="1000"
+          preserveAspectRatio="none"
+          viewBox="0 0 2560 1000"
+        >
+          <g mask='url("#SvgjsMask1100")' fill="none">
+            <path
+              d="M -474.45476859170884,188 C -303.65,266.8 37.95,536 379.54523140829116,582 C 721.15,628 891.95,410.8 1233.545231408291,418 C 1575.15,425.2 1745.95,606.8 2087.5452314082913,618 C 2429.15,629.2 2847.05,488.2 2941.5452314082913,474 C 3036.04,459.8 2636.31,532.4 2560,547"
+              stroke="rgba(212, 155, 42, 0.2)"
+              stroke-width="2"
+            ></path>
+            <path
+              d="M -1361.0257442456343,293 C -1190.23,395.6 -848.63,822.8 -507.0257442456343,806 C -165.43,789.2 5.37,263.6 346.9742557543657,209 C 688.57,154.4 859.37,522.6 1200.9742557543657,533 C 1542.57,543.4 1783.17,267 2054.974255754366,261 C 2326.78,255 2458.99,454.6 2560,503"
+              stroke="rgba(212, 155, 42, 0.2)"
+              stroke-width="2"
+            ></path>
+            <path
+              d="M -1472.2534729041715,529 C -1301.45,478.2 -959.85,236.6 -618.2534729041715,275 C -276.65,313.4 -105.85,727.8 235.74652709582847,721 C 577.35,714.2 748.15,240.6 1089.7465270958285,241 C 1431.35,241.4 1649.7,743.6 1943.7465270958285,723 C 2237.8,702.4 2436.75,255 2560,138"
+              stroke="rgba(255, 225, 164, 0.2)"
+              stroke-width="2"
+            ></path>
+            <path
+              d="M -1116.9889442965846,449 C -946.19,538.4 -604.59,900.2 -262.9889442965845,896 C 78.61,891.8 249.41,499.4 591.0110557034154,428 C 932.61,356.6 1103.41,582 1445.0110557034154,539 C 1786.61,496 2076.01,173.4 2299.0110557034154,213 C 2522.01,252.6 2507.8,632.2 2560,737"
+              stroke="rgba(125, 83, 0, 0.2)"
+              stroke-width="2"
+            ></path>
+            <path
+              d="M -441.4482946327523,729 C -270.65,634.2 70.95,247.6 412.5517053672477,255 C 754.15,262.4 924.95,790 1266.5517053672477,766 C 1608.15,742 1778.95,151.8 2120.5517053672475,135 C 2462.15,118.2 2886.66,648.8 2974.5517053672475,682 C 3062.44,715.2 2642.91,377.2 2560,301"
+              stroke="rgba(212, 155, 42, 0.2)"
+              stroke-width="2"
+            ></path>
+          </g>
+          <defs>
+            <mask id="SvgjsMask1100">
+              <rect width="2560" height="1000" fill="#ffffff"></rect>
+            </mask>
+          </defs>
+        </svg>
+      </span>
+      <span id="random-lines-6">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svgjs="http://svgjs.dev/svgjs"
+          width="2560"
+          height="1000"
+          preserveAspectRatio="none"
+          viewBox="0 0 2560 1000"
+        >
+          <g mask='url("#SvgjsMask1100")' fill="none">
+            <path
+              d="M -474.45476859170884,188 C -303.65,266.8 37.95,536 379.54523140829116,582 C 721.15,628 891.95,410.8 1233.545231408291,418 C 1575.15,425.2 1745.95,606.8 2087.5452314082913,618 C 2429.15,629.2 2847.05,488.2 2941.5452314082913,474 C 3036.04,459.8 2636.31,532.4 2560,547"
+              stroke="rgba(212, 155, 42, 0.2)"
+              stroke-width="2"
+            ></path>
+            <path
+              d="M -1361.0257442456343,293 C -1190.23,395.6 -848.63,822.8 -507.0257442456343,806 C -165.43,789.2 5.37,263.6 346.9742557543657,209 C 688.57,154.4 859.37,522.6 1200.9742557543657,533 C 1542.57,543.4 1783.17,267 2054.974255754366,261 C 2326.78,255 2458.99,454.6 2560,503"
+              stroke="rgba(212, 155, 42, 0.2)"
+              stroke-width="2"
+            ></path>
+            <path
+              d="M -1472.2534729041715,529 C -1301.45,478.2 -959.85,236.6 -618.2534729041715,275 C -276.65,313.4 -105.85,727.8 235.74652709582847,721 C 577.35,714.2 748.15,240.6 1089.7465270958285,241 C 1431.35,241.4 1649.7,743.6 1943.7465270958285,723 C 2237.8,702.4 2436.75,255 2560,138"
+              stroke="rgba(255, 225, 164, 0.2)"
+              stroke-width="2"
+            ></path>
+            <path
+              d="M -1116.9889442965846,449 C -946.19,538.4 -604.59,900.2 -262.9889442965845,896 C 78.61,891.8 249.41,499.4 591.0110557034154,428 C 932.61,356.6 1103.41,582 1445.0110557034154,539 C 1786.61,496 2076.01,173.4 2299.0110557034154,213 C 2522.01,252.6 2507.8,632.2 2560,737"
+              stroke="rgba(125, 83, 0, 0.2)"
+              stroke-width="2"
+            ></path>
+            <path
+              d="M -441.4482946327523,729 C -270.65,634.2 70.95,247.6 412.5517053672477,255 C 754.15,262.4 924.95,790 1266.5517053672477,766 C 1608.15,742 1778.95,151.8 2120.5517053672475,135 C 2462.15,118.2 2886.66,648.8 2974.5517053672475,682 C 3062.44,715.2 2642.91,377.2 2560,301"
+              stroke="rgba(212, 155, 42, 0.2)"
+              stroke-width="2"
+            ></path>
+          </g>
+          <defs>
+            <mask id="SvgjsMask1100">
+              <rect width="2560" height="1000" fill="#ffffff"></rect>
+            </mask>
+          </defs>
+        </svg>
+      </span>
+    </div>
+  </body>
+</html>
