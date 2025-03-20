@@ -438,6 +438,69 @@ ul {
   font-size: 12px;
 }
 
+/* Style for Research Section */
+.research-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+
+.research-card {
+  margin-top: 30px;
+  background-color: var(--card-color);
+  backdrop-filter: blur(5px);
+  max-width: 320px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px var(--box-shadow-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.research-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px 15px var(--box-shadow-color);
+}
+
+.research-card a {
+  text-decoration: none;
+  display: block;
+}
+
+.research-card img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.research-card h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.track-name, .paper-id, .conference-details, .publication-details {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.research-abstract {
+  margin-top: 10px;
+  font-size: 12px;
+  text-align: justify;
+}
+
+.publication-details {
+  color: var(--main-text-color);
+  font-style: italic;
+}
+
+
+
 /* Style for the section-titles */
 .section-titles {
   padding-top: 20px;
@@ -765,3 +828,5 @@ footer {
     width: 25px;
   }
 }
+
+
