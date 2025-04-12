@@ -365,9 +365,17 @@ ul {
 }
 
 .experience h3 {
-  font-size: 24px;
+  /* font-size: 24px; */
   color: var(--darker-color);
   margin-bottom: 10px;
+}
+
+.experience h1 {
+  margin-bottom: 5px;
+}
+
+.experience h3 {
+  margin-top: 0;
 }
 
 .experience p {
