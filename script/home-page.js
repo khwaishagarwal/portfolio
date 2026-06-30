@@ -14,7 +14,7 @@ function printTerminalLines() {
             printThreeDots(() => {
               setTimeout(() => {
                 output.textContent = "";
-                typeWriterEffect("Welcome to my Protfolio Website.", output, () => {
+                typeWriterEffect("Welcome to my Portfolio Website.", output, () => {
                   document.querySelector(".loader").style.display = "none";
                   bodyContent.style.display = "block";
                 });
